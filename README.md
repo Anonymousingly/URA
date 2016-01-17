@@ -2,7 +2,7 @@
 A small algorithm for different types of random insert , delete , retrieve data along with that's implementation on AVL TREE.
 
 <b><i>To see how to use , read Client.java file.</i></b>
-
+<b>Read Summmary package to know about algorithm</b>
 
 <b>I will give Rs. 200/- per bug for 1st 15 bugs within next 96 hours (4 days) ,if reported one is realy a bug.</b> 
 
