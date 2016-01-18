@@ -1,4 +1,4 @@
-package ura_Undelayed_Random_Algorithm;
+package undelayedRandomAlgorithm;
 
 /**
  *
@@ -68,14 +68,14 @@ public class Tracker {
       * T=O(log m),m=Number Of pairs present.<br>
       * NOTE::Maximum Number of pairs will always be less than n/2,n=Number Of elements in BaseStructure.
       */
-     void delete(URAFactory uraf,TrackerNode p,TrackerNode p1,TrackerNode root){
+     void delete(UraInstantiator uraI,TrackerNode p,TrackerNode p1,TrackerNode root){
         if(p1!=null){
             if(p==p1){
-               uraf.getDelete().goForDeletion(uraf,p1,root,VMROOT);
+               uraI.getDelete().goForDeletion(uraI,p1,root,VMROOT);
             }
-            else if(p.min<p1.min){delete(uraf,p,p1.left,p1);}
-            else delete(uraf,p,p1.right,p1);
-            uraf.getBaseStructure().checkForUnbalancing(uraf,p1,root);
+            else if(p.min<p1.min){delete(uraI,p,p1.left,p1);}
+            else delete(uraI,p,p1.right,p1);
+            uraI.getBaseStructure().checkForUnbalancing(uraI,p1,root);
         }
         else System.out.println("DATA min="+p.min+" max="+p.max+"  NOT FOUND");
     }
@@ -83,34 +83,34 @@ public class Tracker {
     /**
      * Insert tracker node.
      */
-     void insert(URAFactory uraf,TrackerNode tmp){
+     void insert(UraInstantiator uraI,TrackerNode tmp){
         tmp2=tmp;
        if(VMROOT==null){
            VMROOT=new TrackerNode();
            VMROOT.left=tmp2;
        }
-       else insertTree(uraf,VMROOT.left,VMROOT);
+       else insertTree(uraI,VMROOT.left,VMROOT);
         
     }
     
     /**
      * Insert in O(log m),m=Number Of pairs.
      */
-     void insertTree(URAFactory uraf,TrackerNode p,TrackerNode root){
+     void insertTree(UraInstantiator uraI,TrackerNode p,TrackerNode root){
           if((tmp2.min<p.min)){
                if(p.left!=null)
-               insertTree(uraf,p.left,p);
+               insertTree(uraI,p.left,p);
                else {
                    p.left=tmp2;
                }
            }
            else{
-                  if(p.right!=null)insertTree(uraf,p.right,p);
+                  if(p.right!=null)insertTree(uraI,p.right,p);
                   else {
                       p.right=tmp2;
                   }
            }
-          uraf.getBaseStructure().checkForUnbalancing(uraf,p,root);
+          uraI.getBaseStructure().checkForUnbalancing(uraI,p,root);
       
     }
 

@@ -1,7 +1,7 @@
 package client;
 
 
-import ura_Undelayed_Random_Algorithm.Service;
+import undelayedRandomAlgorithm.Service;
 import java.util.Scanner;
 /**
  *

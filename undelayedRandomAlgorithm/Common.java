@@ -1,5 +1,5 @@
 
-package ura_Undelayed_Random_Algorithm;
+package undelayedRandomAlgorithm;
 
 /**
  *

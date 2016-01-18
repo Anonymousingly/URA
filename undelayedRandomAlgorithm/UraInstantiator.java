@@ -1,4 +1,4 @@
-package ura_Undelayed_Random_Algorithm;
+package undelayedRandomAlgorithm;
 
 /**
  *
@@ -6,15 +6,15 @@ package ura_Undelayed_Random_Algorithm;
  */
 
 /**
- * Remember to use URAFactory instance with care.<br>
- * Multiple URAFactory instances means multiple data for performing insert,delete
+ * Remember to use UraInstantiator instance with care.<br>
+ * Multiple UraInstantiator instances means multiple data for performing insert,delete
  * retrieve etc .<br>
- * One URAFactory instance is equivalent to One Client.<br>
+ * One UraInstantiator instance is equivalent to One Client.<br>
  * NOTE::: This Will Not Create Separate Process  in O.S. But Every Instance Will Have It's Own
  * Data So If You Choose TO Use Multiple Instances ,Make Sure That You Don't Come 
  * Across The Problem Of Unknowingly Data Alteration.<br>
  */
-public class URAFactory {
+public class UraInstantiator {
     
     private BaseNode bn;
     private BaseStructure bs;
@@ -26,7 +26,7 @@ public class URAFactory {
     private Service s;
     private TrackerNode tn;
     
-    URAFactory(){
+    UraInstantiator(){
         
     }
     

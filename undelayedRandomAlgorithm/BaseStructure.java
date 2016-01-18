@@ -1,4 +1,4 @@
-package ura_Undelayed_Random_Algorithm;
+package undelayedRandomAlgorithm;
 
 /**
  * @author: Vivek Mangla
@@ -25,34 +25,34 @@ public class BaseStructure {
     public static void main(String[] arg){
         /*For Testing Purpose. Uncomment Below Single Line Comment To Proceed.*/
         /*
-        URAFactory uraf=new URAFactory();
+        UraInstantiator uraI=new UraInstantiator();
         Service serve=new Service();
         */
         /*Insert at (clientfactoryObject,index,Data)*/
         /*
-        serve.insert(uraf,5l,new ClientData(0));
-        serve.insert(uraf,5l,new ClientData(1));
-        serve.insert(uraf,4l,new ClientData(2));
-        serve.insert(uraf,5l,new ClientData(3));
-        serve.insert(uraf,2l,new ClientData(4));
-        serve.insert(uraf,17l,new ClientData(5));
-        serve.insert(uraf,5l,new ClientData(54));
-        serve.insert(uraf,82l,new ClientData(63));
-        serve.insert(uraf,5l,new ClientData(31));
-        serve.printAll(uraf);
+        serve.insert(uraI,5l,new ClientData(0));
+        serve.insert(uraI,5l,new ClientData(1));
+        serve.insert(uraI,4l,new ClientData(2));
+        serve.insert(uraI,5l,new ClientData(3));
+        serve.insert(uraI,2l,new ClientData(4));
+        serve.insert(uraI,17l,new ClientData(5));
+        serve.insert(uraI,5l,new ClientData(54));
+        serve.insert(uraI,82l,new ClientData(63));
+        serve.insert(uraI,5l,new ClientData(31));
+        serve.printAll(uraI);
         System.out.println();
-        serve.insert(uraf,83l,new ClientData(45));
-        serve.printAll(uraf);
+        serve.insert(uraI,83l,new ClientData(45));
+        serve.printAll(uraI);
         System.out.println();
-        serve.insert(uraf,90l,new ClientData(899));
-        serve.insert(uraf,170l,new ClientData(903));
-        serve.insert(uraf,5l,new ClientData(811));
-        serve.insert(uraf,1l,new ClientData(12));
-        serve.insert(uraf,17l,new ClientData(13));
-        serve.delete(uraf, 2l);
-        serve.delete(uraf,7l);
-        serve.insert(uraf,5l,new ClientData(82929292));
-        serve.printAll(uraf);
+        serve.insert(uraI,90l,new ClientData(899));
+        serve.insert(uraI,170l,new ClientData(903));
+        serve.insert(uraI,5l,new ClientData(811));
+        serve.insert(uraI,1l,new ClientData(12));
+        serve.insert(uraI,17l,new ClientData(13));
+        serve.delete(uraI, 2l);
+        serve.delete(uraI,7l);
+        serve.insert(uraI,5l,new ClientData(82929292));
+        serve.printAll(uraI);
         System.out.println();
         */
     }
@@ -61,13 +61,13 @@ public class BaseStructure {
      * Reset all the variables.<br>
      * This should be called before processing an object for the first time.
      */
-     void reset(URAFactory uraf){
-        uraf.getInsert().reset();
+     void reset(UraInstantiator uraI){
+        uraI.getInsert().reset();
         bf=l=r=0;
-        uraf.getMinMax().tmp2=uraf.getMinMax().VMROOT=uraf.getMinMax().nTS=null;
-        uraf.getMinMax().l=uraf.getMinMax().r=uraf.getMinMax().bf=0;
-        uraf.getDelete().delindex=false;
-        uraf.getDelete().NODE=0;uraf.getDelete().nTS=null;
+        uraI.getMinMax().tmp2=uraI.getMinMax().VMROOT=uraI.getMinMax().nTS=null;
+        uraI.getMinMax().l=uraI.getMinMax().r=uraI.getMinMax().bf=0;
+        uraI.getDelete().delindex=false;
+        uraI.getDelete().NODE=0;uraI.getDelete().nTS=null;
      }
 
      /**
@@ -86,18 +86,18 @@ public class BaseStructure {
      /**
       * Check whether tree is balanced or not from p's height point of view.
       */
-    void checkForUnbalancing(URAFactory uraf,Common p,Common root){
+    void checkForUnbalancing(UraInstantiator uraI,Common p,Common root){
        p.setHeight(findHeight(p));
        bf=l-r;
        if((bf>1)||(bf<-1)){
-           BalanceTree(uraf,p,root);
+           BalanceTree(uraI,p,root);
        } 
     }
 
      /**
       * Determine the type of rotation needed to balance the tree using wc variable.
       */
-     void BalanceTree(URAFactory uraf,Common root,Common ROOT){
+     void BalanceTree(UraInstantiator uraI,Common root,Common ROOT){
 
        int wC;
 
@@ -134,19 +134,19 @@ public class BaseStructure {
        }
        switch(wC){
            case 1:{
-                  doLL(uraf,root,ROOT);
+                  doLL(uraI,root,ROOT);
                break;
            }
            case 2:{
-               doRR(uraf,root,ROOT);
+               doRR(uraI,root,ROOT);
                break;
            }
            case 3:{
-               doLR(uraf,root,ROOT);
+               doLR(uraI,root,ROOT);
                break;
            }
            case 4:{
-               doRL(uraf,root,ROOT);
+               doRL(uraI,root,ROOT);
                break;
            }
            default:{System.out.println("CouldNOt Modify wC(whichCASE)");}
@@ -157,7 +157,7 @@ public class BaseStructure {
      /**
       * LL unbalanced.
       */
-    void doLL(URAFactory uraf,Common root,Common ROOT){
+    void doLL(UraInstantiator uraI,Common root,Common ROOT){
         Common tmp;
         BaseNode tmpr;
         long k1,k2=0l;
@@ -167,7 +167,7 @@ public class BaseStructure {
             k2=tmpr.left.vMFactor;
         }    
         tmp=root.getLeft();
-        uraf.getDelete().changeRootChild(ROOT, root,tmp);
+        uraI.getDelete().changeRootChild(ROOT, root,tmp);
         root.setLeft(tmp.getRight());
         tmp.setRight(root);
         root.setHeight(findHeight(root));
@@ -181,7 +181,7 @@ public class BaseStructure {
      /**
       * RR unbalanced.
       */
-     void doRR(URAFactory uraf,Common root,Common ROOT){
+     void doRR(UraInstantiator uraI,Common root,Common ROOT){
 
         Common tmp;
         BaseNode tmpr;
@@ -192,7 +192,7 @@ public class BaseStructure {
             k2=tmpr.right.vMFactor;
         }
         tmp=root.getRight();
-        uraf.getDelete().changeRootChild(ROOT, root, tmp);
+        uraI.getDelete().changeRootChild(ROOT, root, tmp);
         root.setRight(tmp.getLeft());
         tmp.setLeft(root);
         root.setHeight(findHeight(root));
@@ -206,17 +206,17 @@ public class BaseStructure {
      /**
       * LR Unbalanced
       */
-     void doLR(URAFactory uraf,Common root,Common ROOT){
-        doRR(uraf,root.getLeft(),root);
-        doLL(uraf,root,ROOT);
+     void doLR(UraInstantiator uraI,Common root,Common ROOT){
+        doRR(uraI,root.getLeft(),root);
+        doLL(uraI,root,ROOT);
     }
 
      /**
       * RL Unbalanced
       */
-     void doRL(URAFactory uraf,Common root,Common ROOT){
-        doLL(uraf,root.getRight(),root);
-        doRR(uraf,root,ROOT);
+     void doRL(UraInstantiator uraI,Common root,Common ROOT){
+        doLL(uraI,root.getRight(),root);
+        doRR(uraI,root,ROOT);
     }
 
      /**

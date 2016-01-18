@@ -1,4 +1,4 @@
-package ura_Undelayed_Random_Algorithm;
+package undelayedRandomAlgorithm;
 
 import client.ClientData;
 
@@ -65,22 +65,22 @@ public class Insert {
      * Insert data at node_number/index in a tree having p as root.<br>
      * Time=O(log n),n=Number Of elements present.
      */
-     void insert(URAFactory uraf, long node,ClientData data,BaseNode p){
+     void insert(UraInstantiator uraI, long node,ClientData data,BaseNode p){
         
-        insert1(uraf,node,data,p);
+        insert1(uraI,node,data,p);
         TrackerNode p1=null,p2=null,vm=new TrackerNode();
         vm.min=vm.max=node;
         
         if(insertFlag==true){
             insertFlag=false;
-            p1=uraf.getMinMax().Find(node,uraf.getMinMax().VMROOT.left);
+            p1=uraI.getMinMax().Find(node,uraI.getMinMax().VMROOT.left);
             if(lastIndex>p1.max){
                 findAndCorrect((p1.max+1),rootTREE.left);
                 maxFlag=false;
-                p2=uraf.getMinMax().Find(p1.max+2,uraf.getMinMax().VMROOT.left);
+                p2=uraI.getMinMax().Find(p1.max+2,uraI.getMinMax().VMROOT.left);
                 if(p2!=null){
                     p1.max=p2.max;
-                    uraf.getMinMax().delete(uraf,p2,uraf.getMinMax().VMROOT.left,uraf.getMinMax().VMROOT);
+                    uraI.getMinMax().delete(uraI,p2,uraI.getMinMax().VMROOT.left,uraI.getMinMax().VMROOT);
                 }
                 else {p1.max++;}
             }
@@ -88,21 +88,21 @@ public class Insert {
             else {System.out.println("BIG_ERROR");System.exit(0);}
         }
         else{
-            if(uraf.getMinMax().VMROOT!=null){    
+            if(uraI.getMinMax().VMROOT!=null){    
                 if((node!=0)){
-                    p1=uraf.getMinMax().Find(node-1,uraf.getMinMax().VMROOT.left);
+                    p1=uraI.getMinMax().Find(node-1,uraI.getMinMax().VMROOT.left);
                 }
                 if(node<lastIndex){//if nodeIndex>lastIndex , tracker node will not be there for nodeIndex+1 also.
                     //and if node==lastIndex , this fragement will not be processed due to insert on pre-occupied index.
-                    p2=uraf.getMinMax().Find(node+1,uraf.getMinMax().VMROOT.left);
+                    p2=uraI.getMinMax().Find(node+1,uraI.getMinMax().VMROOT.left);
                 }
-                if((p1==null)&&(p2==null)){uraf.getMinMax().insert(uraf,vm);}
+                if((p1==null)&&(p2==null)){uraI.getMinMax().insert(uraI,vm);}
                 else{
                     if(p1!=null){p1.max=node;}
                     if(p2!=null){
                         if(p1!=null){
                             p1.max=p2.max;
-                            uraf.getMinMax().delete(uraf,p2,uraf.getMinMax().VMROOT.left,uraf.getMinMax().VMROOT);
+                            uraI.getMinMax().delete(uraI,p2,uraI.getMinMax().VMROOT.left,uraI.getMinMax().VMROOT);
                         }
                         else{
                             p2.min=node;
@@ -111,14 +111,14 @@ public class Insert {
                 }
             }
             else{
-                uraf.getMinMax().insert(uraf,vm);
+                uraI.getMinMax().insert(uraI,vm);
             }
             if(node>lastIndex){lastIndex=node;}
         }
         numberOfElements++;
     }
     
-     void insert1(URAFactory uraf,long node,ClientData data,BaseNode p){
+     void insert1(UraInstantiator uraI,long node,ClientData data,BaseNode p){
         if(node>=0){
             insertFlag=false;vMFlag=false;
             tmp2=new BaseNode();
@@ -128,7 +128,7 @@ public class Insert {
                 rootTREE=new BaseNode();
                 rootTREE.left=tmp2;
             }
-            else{insertTree(uraf,rootTREE.left,rootTREE);}
+            else{insertTree(uraI,rootTREE.left,rootTREE);}
         }
         else System.out.println(" NEGATIVE INDEX ARE NOT ACCEPTED");
     }
@@ -162,9 +162,9 @@ public class Insert {
              * Memory::O(log n),for traversing stack is formed<br>
              * You can optimize it using user_defined stack.
              */
-     void insertTree(URAFactory uraf,BaseNode p,BaseNode root){
+     void insertTree(UraInstantiator uraI,BaseNode p,BaseNode root){
         if((tmp2.nodeIndex<p.nodeIndex)){
-            if(p.left!=null){insertTree(uraf,p.left,p);}
+            if(p.left!=null){insertTree(uraI,p.left,p);}
             else {
                 p.left=tmp2;tmp2=null;
             }
@@ -182,14 +182,14 @@ public class Insert {
             }
             tmp2.nodeIndex=tmpnode;
             if(p.right!=null){
-                insertTree(uraf,p.right,p);
+                insertTree(uraI,p.right,p);
             }
             else {
                 p.right=tmp2;tmp2=null;
             }
             vMFlag=true;
         }
-        uraf.getBaseStructure().checkForUnbalancing(uraf,p,root);
+        uraI.getBaseStructure().checkForUnbalancing(uraI,p,root);
     }
     
      void reset(){

@@ -1,4 +1,4 @@
-package ura_Undelayed_Random_Algorithm;
+package undelayedRandomAlgorithm;
 
 
 /**
@@ -23,21 +23,21 @@ public class Delete {
      * tracker node must also be updated i.e. it should be deleted if it contains
      * min and max value as index or updated if index is contained inside min and max values.
      */
-     void manageTracker(URAFactory uraf,long node,BaseNode p,BaseNode root,BaseNode ROOT){
+     void manageTracker(UraInstantiator uraI,long node,BaseNode p,BaseNode root,BaseNode ROOT){
         long min,max;
         TrackerNode p1;
-        p1=uraf.getMinMax().Find(node,uraf.getMinMax().VMROOT.left);
+        p1=uraI.getMinMax().Find(node,uraI.getMinMax().VMROOT.left);
         if(p1!=null){
             delindex=true;
             /*For debug purpose, comment below if statement and let this code fragemenet's
              * delete statement be executed nearby line no. 70.
              */
-            if(uraf.getInsert().numberOfElements==1){
-                uraf.getBaseStructure().reset(uraf);
+            if(uraI.getInsert().numberOfElements==1){
+                uraI.getBaseStructure().reset(uraI);
                 return;
             }
-            if(uraf.getInsert().lastIndex==node){
-                if(p1.min!=p1.max){uraf.getInsert().lastIndex--;}
+            if(uraI.getInsert().lastIndex==node){
+                if(p1.min!=p1.max){uraI.getInsert().lastIndex--;}
                 else{
                     //below instruction is just a debugging one.
                     if(p1.right!=null){System.out.println("ERROR");System.exit(0);}
@@ -45,18 +45,18 @@ public class Delete {
                         if(p1.left!=null){
                             TrackerNode tt=p1.left;
                             while(tt.right!=null){tt=tt.right;}
-                            uraf.getInsert().lastIndex=tt.max;
+                            uraI.getInsert().lastIndex=tt.max;
                         }
                         else{
-                            if(uraf.getMinMax().pROOT!=p1)
-                            uraf.getInsert().lastIndex=uraf.getMinMax().pROOT.max;
-                            else uraf.getInsert().lastIndex=0;
+                            if(uraI.getMinMax().pROOT!=p1)
+                            uraI.getInsert().lastIndex=uraI.getMinMax().pROOT.max;
+                            else uraI.getInsert().lastIndex=0;
                         }
                     }
                 }
             }
             //delete tracker node.
-            if(p1.min==p1.max){uraf.getMinMax().delete(uraf,p1,uraf.getMinMax().VMROOT.left,uraf.getMinMax().VMROOT);}
+            if(p1.min==p1.max){uraI.getMinMax().delete(uraI,p1,uraI.getMinMax().VMROOT.left,uraI.getMinMax().VMROOT);}
             //Update tracker node.
             else if(p1.min==node){p1.min++;}
             else if(p1.max==node){p1.max--;}
@@ -65,15 +65,15 @@ public class Delete {
                 TrackerNode tmp=new TrackerNode();
                 tmp.min=min;tmp.max=max;
                 p1.min=node+1;
-                uraf.getMinMax().insert(uraf,tmp);
+                uraI.getMinMax().insert(uraI,tmp);
             }
-            delete(uraf,node,p,root,ROOT);
+            delete(uraI,node,p,root,ROOT);
         }
         else {
             delindex=false;
             System.out.println("TRACKING NODE NOT FOUND\nReturning...");
             /**DEBUG STATEMENT.
-             * delete(uraf,node,p,root,ROOT);
+             * delete(uraI,node,p,root,ROOT);
              */
         }
     }
@@ -84,13 +84,13 @@ public class Delete {
       * BaseNode root: root is the reference to root of base structure.<br>
       * Non-Amortized Time Complexity:O(log n) , in every case.
       */
-     void delMe(URAFactory uraf,long index,BaseNode p,BaseNode root){
+     void delMe(UraInstantiator uraI,long index,BaseNode p,BaseNode root){
         nTS=null;
         delindex=false;
         NODE=0l;
         if((index>=0)){
         NODE=index;
-        manageTracker(uraf,index,p,root,root);
+        manageTracker(uraI,index,p,root,root);
         }
         
     }
@@ -99,7 +99,7 @@ public class Delete {
       * If tracker node contains the index to be deleted, this function is called after updating tracker node.<br>
       * Find the appropriate index in base data structure and go for it's deletion
       */
-    void delete(URAFactory uraf,long index,BaseNode p,BaseNode root,BaseNode ROOT){
+    void delete(UraInstantiator uraI,long index,BaseNode p,BaseNode root,BaseNode ROOT){
         if(p!=null){
             if(p.nodeIndex==index){
                 /*DEBUG STATEMENT
@@ -108,15 +108,15 @@ public class Delete {
                             + "but data is present at this index.");
                 }*/
                 delindex=true;
-               goForDeletion(uraf,p,root,ROOT);
+               goForDeletion(uraI,p,root,ROOT);
             }
             else if(index<p.nodeIndex){
-                delete(uraf,index,p.left,p,ROOT);
+                delete(uraI,index,p.left,p,ROOT);
             }
             else{
-                delete(uraf,index-p.vMFactor,p.right,p,ROOT);
+                delete(uraI,index-p.vMFactor,p.right,p,ROOT);
             }
-            uraf.getBaseStructure().checkForUnbalancing(uraf,p,root);
+            uraI.getBaseStructure().checkForUnbalancing(uraI,p,root);
         }
         else {
             /*DEBUG STATEMENT
@@ -130,10 +130,10 @@ public class Delete {
         }
     }
     
-     void goForDeletion(URAFactory uraf,Common p,Common root,Common ROOT){
+     void goForDeletion(UraInstantiator uraI,Common p,Common root,Common ROOT){
         if((p.getLeft()==null)&&(p.getRight()==null)){
             if((p==root.getLeft())&&(root==ROOT)){
-                uraf.getInsert().rootTREE=null;
+                uraI.getInsert().rootTREE=null;
             }
             else {
                 changeRootChild(root,p,null);
@@ -164,7 +164,7 @@ public class Delete {
             if(p.getLeft().getRight()!=null)
             {
                 nTS=null;
-                findAndDelete(uraf,p.getLeft(),p,0);
+                findAndDelete(uraI,p.getLeft(),p,0);
                 nTS.setLeft(p.getLeft());
                 nTS.setRight(p.getRight());
                 if(p instanceof BaseNode){
@@ -174,7 +174,7 @@ public class Delete {
                 }
                 changeRootChild(root,p,nTS);
                 p.setLeft(null);p.setRight(null);
-                uraf.getBaseStructure().checkForUnbalancing(uraf,nTS,root);
+                uraI.getBaseStructure().checkForUnbalancing(uraI,nTS,root);
                 
             }
             else{
@@ -182,7 +182,7 @@ public class Delete {
                 if(p instanceof BaseNode){BaseNode tmp=(BaseNode)p;tmp.left.vMFactor=tmp.vMFactor;}
                 changeRootChild(root,p,p.getLeft());
                 p.setRight(null);
-                uraf.getBaseStructure().checkForUnbalancing(uraf,p.getLeft(),root);
+                uraI.getBaseStructure().checkForUnbalancing(uraI,p.getLeft(),root);
                 p.setLeft(null);
             }
         }
@@ -195,7 +195,7 @@ public class Delete {
         
     }
     
-     void findAndDelete(URAFactory uraf,Common p,Common root,long baseindex){
+     void findAndDelete(UraInstantiator uraI,Common p,Common root,long baseindex){
         
         if(p.getRight()!=null){
             long valueIndex=0;
@@ -204,7 +204,7 @@ public class Delete {
                 valueIndex=baseindex+tmp.vMFactor;
                 //tmp=null;
             }
-            findAndDelete(uraf,p.getRight(),p,valueIndex);
+            findAndDelete(uraI,p.getRight(),p,valueIndex);
         }
         else{
             nTS=p;
@@ -214,7 +214,7 @@ public class Delete {
             root.setRight(p.getLeft());
             p.setRight(null);p.setLeft(null);
         }
-        uraf.getBaseStructure().checkForUnbalancing(uraf,p,root);
+        uraI.getBaseStructure().checkForUnbalancing(uraI,p,root);
     }
     
      

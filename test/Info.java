@@ -23,14 +23,14 @@ public class Info {
      * 
      * 1.)Faster than Array in array's worst case of insert.<br>
      * 2.)Faster than Array in array's average case of insert.<br>
-     * 3.)Not much  slow than array in array's best case of insert(infact, it was slow by a factor of 3 ,log(n)).<br>
+     * 3.)Not much  slow than array in array's best case of insert(infact, it was slow by a factor of log(n)).<br>
      * 
      * 4.)Fast than OBST in OBST's all cases.<br>
      * 
      * And I was successful in that part.<br>
      * In BEST case of Array , for point number 3, slowness was due to factor of log(n).<br>
      * -----------------------------------------------------------------------------------------------<br>
-     * THE VARIOUS TEST CAES WERE TAKEN AS::<br>
+     * THE VARIOUS TEST CASES WERE TAKEN AS::<br>
      * :::::::::::::::::For ARRAY::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::<br>
      * 1.)Worst Case Of Array::<br>
      *                  Insert each data on 0th index.<br>
@@ -40,7 +40,7 @@ public class Info {
      *                  (iii)First Insert n/2 data on oth index and rest data from [n/2-n)th position onwards.<br>
      *                  (iv)First Insert n/2 data on n/2th index , now rest of the data from [0-n/2)th index.<br>
      * <br>
-     * I have designed above test cases as Averge=(Best+Worst) ,i.e. insert half of the data as best case and rest as worst.<br>
+     * I have designed above test cases as Average=(Best+Worst) ,i.e. insert half of the data as best case and rest as worst.<br>
      * <br>
      * 3.)Best Case Of Array::<br>
      *                  Insert on [0-(n-1)]th index in sequentially increasing manner.<br>
