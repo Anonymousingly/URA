@@ -1,7 +1,6 @@
 package client;
 
 
-import undelayedRandomAlgorithm.Service;
 import java.util.Scanner;
 /**
  *
@@ -16,9 +15,9 @@ public class Client {
     
     
     /**
-     * Currently using single Service instance.
+     * Currently using single Communication instance.
      */
-    static Service serve=new Service();
+    static ClientCommunicator ccm=new ClientCommunicator();
     
     
     public static void main(String[] arg){
@@ -34,14 +33,17 @@ public class Client {
                     long index=s.nextLong();
                     System.out.println("\nEnter the data(in INTEGER FORM)\n");
                     long data=s.nextLong();
-                    serve.insert(index, new ClientData(data));
+                    //for synchronization uncomment below.
+                    //synchronized(serve){
+                    ccm.insert(index, new ClientData(data));
+                    //}
                     break;
                 }
                 case 2:{
                     System.out.println("\nEnter the index to delete\n");
                     long index=s.nextLong();
                     try{
-                    serve.delete(index);
+                    ccm.delete(index);
                     }catch(Exception er){System.out.println("ERROR :: "+er);}
                     break;
                 }
@@ -49,7 +51,7 @@ public class Client {
                     System.out.println("\nEnter index to retrieve it's data\n");
                     long index=s.nextLong();
                     try{
-                        System.out.println(serve.get(index));
+                        System.out.println(ccm.get(index));
                     }catch(Exception er){
                         //CAN BE DUE TO DATA NOT FOUND.
                         
@@ -59,21 +61,25 @@ public class Client {
                 }
                 case 4:{
                     System.out.println("----------------------------------");
-                    serve.printAll();
+                    ccm.printAll();
                     System.out.println();
                     break;
                 }
                 case 5:{
-                    System.out.println(serve.getTotalNumberOfElements());
+                    System.out.println(ccm.getDataCount());
                     break;
                 }
                 case 6:{
-                    System.out.println(serve.getLastIndex());
+                    System.out.println(ccm.getLastIndex());
                     break;
                 }
                 default:{System.out.println("Wrong Choice");}
             }
         }
     }
+    
+    
+    
+    
     
 }

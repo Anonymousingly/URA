@@ -10,8 +10,10 @@ import client.ClientData;
 /**
  * Service file provides the client needs that are being satisfied now.<br>
  * Some of them are insert , delete , get , printAll.
- * Only Service class will have a direct interaction with Client.
- * Rest Of the details are being kept abstract from client.
+ * Only Service class will have a direct interaction with Client.<br>
+ * Rest Of the details are being kept abstract from client.<br>
+ * Do not create multiple Service instances if you want to update a common object.<br>
+ * Multiple Service instances means multiple Base Structures.
  */ 
 
 public class Service {

@@ -7,7 +7,7 @@ package undelayedRandomAlgorithm;
 
 /**
  * Remember to use UraInstantiator instance with care.<br>
- * Multiple UraInstantiator instances means multiple data for performing insert,delete
+ * Multiple UraInstantiator instances means multiple dataObjects for performing insert,delete
  * retrieve etc .<br>
  * One UraInstantiator instance is equivalent to One Client.<br>
  * NOTE::: This Will Not Create Separate Process  in O.S. But Every Instance Will Have It's Own
