@@ -1,6 +1,6 @@
 # URA-UnDelayed-Random-Algorithm-
-                                          Under MIT Licence<br>
-                                    Copyright (c) 2016 "Vivek Mangla"<br>
+                                          Under MIT Licence
+                                    Copyright (c) 2016 "Vivek Mangla"
 A small algorithm for different types of random insert , delete , retrieve data along with that's implementation on AVL TREE.<br>
 A substitute for ArrayList , Array  , AVL TREE , Self Balancing Trees , HashMaps (where indexes of URA will be keys of HashMap) and few other collections in the cases of index/key collision .<br>
 Performs fast in cases where during insertion on pre occupied index , previous data has to be shifted instead of replacement.<br>
