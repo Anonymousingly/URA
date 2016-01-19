@@ -1,15 +1,20 @@
 # URA-UnDelayed-Random-Algorithm-
-Under MIT Licence<br>
+                                          Under MIT Licence<br>
+                                    Copyright (c) 2016 "Vivek Mangla"<br>
 A small algorithm for different types of random insert , delete , retrieve data along with that's implementation on AVL TREE.<br>
-<b>I like this user name "Anonymousingly" that's why using this ,not to hide myself.</b><br> 
-<b>To see how to use , read <i>Client.java</i> file in <i>client</i> package.</b><br>
-<b>Read <i>summmaryOfAlgotithm</i> package to know about algorithm</b><br>
-This API is <b>Thread Safe except test package </b>,if client uses <b><i>ClientCommunicator.java</i></b> as in <b><i>Client.java</i></b> .<br>
+A substitute for ArrayList , Array  , AVL TREE , Self Balancing Trees , HashMaps (where indexes of URA will be keys of HashMap) and few other collections in the cases of index/key collision .<br>
+Performs fast in cases where during insertion on pre occupied index , previous data has to be shifted instead of replacement.<br>
+-----------------
+<b>I like this user name "Anonymousingly" that's why using this & not to hide myself.</b><br><br>
+-----------------
+<b>To see how to use , read <i>Client.java</i> file in <i>client</i> package.</b><br><br>
+<b>Read <i>summmaryOfAlgotithm</i> package to know about algorithm</b><br><br>
+This API is <b>Thread Safe except test package </b>,if client uses <b><i>ClientCommunicator.java</i></b> as in <b><i>Client.java</i></b> .<br><br>
 This API is <b>Not Thread Safe if </b>client directly calls functions provided by <b><i>Service.java</i></b> .
 
-<b>I will give Rs. 200/- per bug for 1st 15 technical bugs within next 96 hours (4 days) ,if reported one is realy a bug.</b>Time starts at 12:50 AM ,18th January IST. 
+<b>I will give $4 per bug for 1st 15 technical bugs within next 96 hours (4 days) ,if reported one is realy a bug.</b>Time starts at 12:50 AM ,18th January IST. 
 
-<b>Why I created this API??</b><br>
+<b>Why I created this API ?</b><br>
 When you insert data in ,say array, and let us say the index was pre occupied .
 For example::<br>
 Data was present at indexes 3,4,5,6,7,8,12,234,3000... then <br>
@@ -25,26 +30,33 @@ Also  this type of insertion can  be somewhere in between MOST of the times  and
 
 To solve such type of insertion problems along with few other different types(will be available in future releases) in less possible time(without much delay other than that of Base Data Structure),URA has been designed.<br><br>
 
-URA with AVL TREE as base can be used as an alternative to ArrayList , Array  , AVL TREE ,Self Balancing Trees , HashMaps (where indexes of URA will be keys of HashMap) and few other collections .<br>
+URA with AVL TREE as base can be used as an alternative to ArrayList , Array  , AVL TREE , Self Balancing Trees , HashMaps (where indexes of URA will be keys of HashMap) and few other collections .<br>
 
-When I tested URA with AVL TREE as base in different cases of Array and OBST(Ordered Binary Search Tree) ,I found it to be faster than both of them in all cases except for one case of Array and that was due to log(n) factor of AVL_TREE <b>(infact,this algo was not designed for that case)</b>.<br>
+When I tested URA with AVL TREE as base in different cases of Array and OBST(Ordered Binary Search Tree) ,I found it to be faster than both of them in all cases except for one case of Array and that was due to log(n) factor of AVL_TREE <b>(infact,this algo was not designed for the case of insertion on non-repetitive indexes <i> ONLY </i>)</b>.<br>
 These test cases were designed by me specifically for Array and OBST i.e. the cases favourable OR unfavourable to both of them.<br>
-<b><i>Please read these test cases inside Info.java of test package.</i></b>
-These were best , average , worst .
-Best Cases are the one in which Array and OBST will perform fastest among other test cases.<br>
-For Array , best case is ::Firstly insert an element at lastIndex and then insert remaining elements in sequentially increasing order without any repetitive insertion on an index(without any insert on pre-occupied index.) uptill lastIndex-1.  and<br>
-For OBST ,best case is ::Insert all elements at sequentially increasing index from 0 to lastIndex without any repetitive insertion on an index (without any insert on pre-occupied index.) <br>
+<b><i>Please read these test cases inside Info.java of test package.</i></b><br>
+<b> These were best , average and worst .</b><br>
+Best Cases are the ones in which Array and OBST will perform fastest among all other test cases.<br>
+<b> For Array , best case is </b>::Firstly insert an element at lastIndex and then insert remaining elements in sequentially increasing order without any repetitive insertion on an index(without any insert on pre-occupied index ) uptill lastIndex-1.  and<br>
+<b> For OBST ,best case is </b>::Insert all elements at sequentially increasing index from 0 to lastIndex without any repetitive insertion on an index ( without any insert on pre-occupied index ) <br>
 
-Similarly , worst cases are the one in which array and OBST will perform slowest .<br>
-For array one amon them is ::Insert all elements on 0th index.<br>
-For OBST ,one of them is insert first element at lastIndex and insert rest elements in 2 phases:: In 1st phase , Insert at all even indexes.In 11nd phase ,insert at same even indexes as before.<br>
+Similarly , <b> worst cases </b> are the ones in which array and OBST will perform slowest .<br>
+<b>For array </b>, one among them is ::Insert all elements on 0th index.<br>
+<b>For OBST </b> , one of them is insert first element at lastIndex and insert rest elements in 2 phases:: In 1st phase , Insert at all even indexes.In 2nd phase , insert at same even indexes as before.<br>
 
 Average case = Insert half elements as in Best case AND Insert other halves as in Worst Case and Vice-Versa.<br>
 
 <b>On my laptop for 10^7 ( 10 million ) elements , URA with AVL TREE as Base proved that ::</b><br>
 *It is faster than OBST in OBST's best , Worst and Average cases by 1 second ,12 seconds and 3 seconds respectively.<br>
-*It is faster than Arrary in Array's Worst and Average Cases by 20 seconds and 7 seconds respectively.<br>
-*It is little bit slow than Array in Array's best case by 6.5 seconds due to Log(n) factor of AVL_TREE ... ( remember this algo is not designed for unique insertion i.e. for insertion on non-repetitive indexes . )<br>
+*It is faster than Array in Array's Worst and Average Cases by 20 seconds and 7 seconds respectively.<br>
+*It is little bit slow than Array in Array's best case by 6.5 seconds due to log(n) factor of AVL_TREE ... ( <b> remember this algo is not designed for unique insertion i.e. for insertion on non-repetitive indexes <i> ONLY </i> </b> )<br>
 
-I also named this implementation as VM's Lazy Array or VMLazy Array ,<b> just for fun </b> .
+I also named this implementation as VM's Lazy Array or VMLazy Array ,<b> just for fun </b> .<br>
 This implementation on AVL TREE will give Almost Constant or Almost fixed time complexity of O(log n) in all types of insertions , deletions , retrieval of data , where n = Number of data / element present.
+<br>
+I am also developing it further to provide further types of insertions , deletions like if insert on same index :: shift backwards OR retrigger that insertion to some other point via some algo and much more .<br>
+<br>
+<b><i><u> Till Then ENJOY!! </u></i></b>
+<br>---<br>
+Vivek Mangla .<br>
+anonymousinglyanonymous@gmail.com
