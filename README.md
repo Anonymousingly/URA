@@ -2,13 +2,15 @@
                                           Under MIT Licence
                                     Copyright (c) 2016 "Vivek Mangla"
 A small algorithm for different types of random insert , delete , retrieve data along with that's implementation on AVL TREE.<br>
-A substitute for ArrayList , Array  , AVL TREE , Self Balancing Trees , HashMaps (where indexes of URA will be keys of HashMap) and few other collections in the cases of index/key collision .<br>
-Performs fast in cases where during insertion on pre occupied index , previous data has to be shifted instead of replacement.<br>
+A substitute for ArrayList , Array  , OBST , AVL TREE , Self Balancing Trees , HashMaps (where indexes of URA will be keys of HashMap) and few other collections in the cases of index/key collision .<br>
+Performs faster  in cases where during insertion on pre-occupied index , previous data has to be shifted instead of replacement.<br>
 -----------------
 <b>I like this user name "Anonymousingly" that's why using this & not to hide myself.</b><br><br>
 -----------------
 <b>To see how to use , read <i>Client.java</i> file in <i>client</i> package.</b><br><br>
 <b>Read <i>summmaryOfAlgotithm</i> package to know about algorithm</b><br><br>
+<b>Do study summaryOfAlgorithm package to understand it's limitations.</b><br>
+
 This API is <b>Thread Safe except test package </b>,if client uses <b><i>ClientCommunicator.java</i></b> as in <b><i>Client.java</i></b> .<br><br>
 This API is <b>Not Thread Safe if </b>client directly calls functions provided by <b><i>Service.java</i></b> .
 
@@ -54,7 +56,14 @@ Average case = Insert half elements as in Best case AND Insert other halves as i
 I also named this implementation as VM's Lazy Array or VMLazy Array ,<b> just for fun </b> .<br>
 This implementation on AVL TREE will give Almost Constant or Almost fixed time complexity of O(log n) in all types of insertions , deletions , retrieval of data , where n = Number of data / element present.
 <br>
-I am also developing it further to provide further types of insertions , deletions like if insert on same index :: shift backwards OR retrigger that insertion to some other point via some algo and much more .<br>
+<b>Limitations ::</b>
+This algorithm(URA) will work for specific data structures only .Study is going on to find exact properties of those .As this algo. depends upon path traversal properties ,so below are the ones I have concluded till now and all should be fulfilled::<br>
+1.)There <b>must</b> be a unique path to reach every element.<br>
+2.)There <b>should</b> be a common starting point for all paths.<br>
+3.)<b><i><u>VMFactor</u></i></b> must be updated accordingly in the decision node of index collided path.<br>
+DataStructures satisfying above properties and hence compatible with URA are :: LinkedList ( Single and Double ) , BST , AVL TREE .<br><br>
+
+I am also developing it further to provide further types of insertions , deletions like if insert on same index :: shift backwards OR re-trigger that insertion to some other point via some algo and much more .<br>
 <br>
 <b><i><u> Till Then ENJOY!! </u></i></b>
 <br>---<br>
