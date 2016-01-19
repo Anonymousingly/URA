@@ -4,8 +4,8 @@ A small algorithm for different types of random insert , delete , retrieve data 
 
 <b><i>To see how to use , read ~Client.java~ file in ~client~ package.</i></b><br>
 <b>Read ~summmaryOfAlgotithm~ package to know about algorithm</b><br>
-This API is <b>Thread Safe <b>,if client uses ClientCommunicator as in Client.java .<br>
-This API is <b>Not Thread Safe if <b>client directly calls functions provided by Service.java .
+This API is <b>Thread Safe </b>,if client uses ClientCommunicator as in Client.java .<br>
+This API is <b>Not Thread Safe if </b>client directly calls functions provided by Service.java .
 
 <b>I will give Rs. 200/- per bug for 1st 15 bugs within next 96 hours (4 days) ,if reported one is realy a bug.</b>Time starts at 12:50 AM ,18th January IST. 
 
