@@ -8,7 +8,7 @@ Performs faster  in cases where during insertion on pre-occupied index , previou
 <b>I like this user name "Anonymousingly" that's why using this & not to hide myself.</b><br><br>
 -----------------
 <b>To see how to use , read <i>Client.java</i> file in <i>client</i> package.</b><br><br>
-<b>Read <i>summmaryOfAlgotithm</i> package to know about algorithm</b><br><br>
+<b>Read <i>summmaryOfAlgorithm</i> package to know about algorithm</b><br><br>
 <b>Do study summaryOfAlgorithm package to understand it's limitations.</b><br>
 
 <b>::</b>This API is <b>Thread Safe except test package </b>,if client uses <b><i>ClientCommunicator.java</i></b> as in <b><i>Client.java</i></b> .<br><br>
