@@ -1,5 +1,27 @@
 package test;
-
+/** 
+ * The MIT License (MIT)
+ *  
+ * Copyright (c) 2016 "Vivek Mangla"
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 /**
  *
  * @author Vivek Mangla
@@ -51,25 +73,17 @@ public class Info {
      *                  (i)First insert a data on (n-1)th index , now ::<br>
      *                                                              a.)Insert on all even indexes.<br>
      *                                                              b.)Insert on all same even indexes again. <br>
-     *                  (ii)First insert on (n-1)th index , now insert rest of data on oth index.<br>
-     *        <<<<Take average of above two different worst cases>>>>                            <br>                   
+                   
      * Above are worst cases of OBST as even indices are leaf nodes on OBST and hence it will take more time
      * to reach leaf tan non-leaf node.(For no. of elements as 10^X forAll X>=1 , even numbered index are leaf .)
      * <br><br>
      * 2.)Average Case Of OBST::<br>
      *                  (i)First insert sequentially on (0-n/2)th, now <br>
-     *                                                             a.)Insert on n-1th index.<br>
-     *                                                             b.)Insert rest data at n/2th index.<br>
-     *                  (ii)First insert sequentially on (0-n/2)th, now <br>
-     *                                                             a.)Insert on n-1th index.<br>
-     *                                                             b.)Insert rest data at 0th index.<br>
-     *                  (iii)First insert sequentially on n-1 th, now <br>
-     *                                                             a.)Insert n/2 data on [0-(n/2)]th index.<br>
-     *                                                             b.)Insert rest data at n/2th index.<br>
-     *                  (iv)First insert sequentially on n/2th, now <br>
-     *                                                             a.)Insert n/2-1 data on 0th  index.<br>
-     *                                                             b.)Insert rest data at [(n/2+1) - (n-1)]th index.<br>
-     *              Above are average cases as:: BEST + AVERAGE.<br>
+     *                                                             a.)Insert on (n-1)th index.<br>
+     *                                                             b.)Insert rest data as in worst case from n/2th index.<br>
+     *                  (ii)First insert on n/2th index , now insert as in worst case from [0-(n/2-1)]th index and then:: <br>
+     *                                                             a.)Insert sequentially from [(n/2+1) - (n-1)]th index.<br>
+     *              Above are average cases as:: BEST + WORST.<br>
      * 3.)Best Case Of Ordered BST::<br>
      *                  Insert Sequentially on [0-(n-1)]th index.<br>
      * <br>

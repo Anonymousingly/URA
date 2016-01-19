@@ -1,8 +1,4 @@
 package undelayedRandomAlgorithm;
-/**
- * @author Vivek Mangla
- */
-
 /** 
  * The MIT License (MIT)
  *  
@@ -26,6 +22,11 @@ package undelayedRandomAlgorithm;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+/**
+ * @author Vivek Mangla
+ */
+
+
 
 /**
  * URA :: UnDelayed Random Algorithm.<br>
