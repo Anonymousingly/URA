@@ -14,7 +14,7 @@ Performs faster  in cases where during insertion on pre-occupied index , previou
 <b>::</b>This API is <b>Thread Safe except test package </b>,if client uses <b><i>ClientCommunicator.java</i></b> as in <b><i>Client.java</i></b> .<br><br>
 This API is <b>Not Thread Safe if </b>client directly calls functions provided by <b><i>Service.java</i></b> .
 
-<b>I will give $4 per bug for 1st 15 technical bugs within next 96 hours (4 days) ,if reported one is realy a bug.</b>Time starts at 12:50 AM ,18th January IST. 
+<b>I will give $4 per bug for 1st 15 technical bugs within next 168 hours (7 days) ,if reported one is realy a bug.</b>Time starts at 12:50 AM ,18th January IST. 
 
 <b>::</b><b>Why I created this API ?</b><br>
 When you insert data in ,say array, and let us say the index was pre occupied .
