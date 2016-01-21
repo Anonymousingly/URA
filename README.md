@@ -16,7 +16,7 @@ This API is <b>Not Thread Safe if </b>client directly calls functions provided b
 
 <b>I will give $4 per bug for 1st 15 technical bugs within next 168 hours (7 days) ,if reported one is realy a bug.</b>Time starts at 12:50 AM ,18th January IST. 
 
-    <b>::</b><b>Why I created this API ?</b><br>
+    Why I created this API ?
 When you insert data in ,say array, and let us say the index was pre occupied .
 For example::<br>
 Data was present at indexes 3,4,5,6,7,8,12,234,3000... then <br>
@@ -32,7 +32,7 @@ Also  this type of insertion can  be somewhere in between MOST of the times  and
 
 <b>::</b>To solve such type of insertion problems along with few other different types(will be available in future releases) in less possible time(without much delay other than that of Base Data Structure),URA has been designed.<br><br>
 
-    URA with AVL TREE as base can be used as an alternative to ArrayList , Array  , AVL TREE , Self Balancing Trees and few other collections .<br>
+    URA with AVL TREE as base can be used as an alternative to ArrayList , Array  , AVL TREE , Self Balancing Trees and few        other collections .
 
 <b>::</b>When I tested URA with AVL TREE as base in different cases of Array and OBST(Ordered Binary Search Tree) ,I found it to be faster than both of them in all cases except for one case of Array and that was due to log(n) factor of AVL_TREE <b>(infact,this algo was not designed for the case of insertion on non-repetitive indexes <i> ONLY </i>)</b>.<br>
 These test cases were designed by me specifically for Array and OBST i.e. the cases favourable OR unfavourable to both of them.<br>
@@ -67,5 +67,5 @@ DataStructures satisfying above properties and hence compatible with URA are :: 
 <br>
 <b><i><u> Till Then ENJOY!! </u></i></b>
 <br>---<br>
-Vivek Mangla .<br>
-anonymousinglyanonymous@gmail.com
+       Vivek Mangla .
+       anonymousinglyanonymous@gmail.com
