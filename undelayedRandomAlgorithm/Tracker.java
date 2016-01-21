@@ -49,8 +49,8 @@ package undelayedRandomAlgorithm;
 public class Tracker {
     
 
-     TrackerNode pROOT=null,tmp2=null,VMROOT=null,nTS=null;
-     int l=0,r=0,bf=0;
+     TrackerNode pROOT,tmp2,VMROOT,nTS;
+     int l,r,bf;
     
     
      TrackerNode Find(long node,TrackerNode p){

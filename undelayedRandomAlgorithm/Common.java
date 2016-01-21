@@ -38,6 +38,9 @@ public interface Common{
     public void setLeft(Common l);
     public void setRight(Common r);
     public int getHeight();
+    /**
+     * Note height has been taken in integer form.
+     */
     public void setHeight(int h);
     
 }

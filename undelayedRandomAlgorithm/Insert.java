@@ -49,7 +49,7 @@ import client.ClientData;
 public class Insert {
     
      long lastIndex=-1l;/*Track the last Index inseted.-1 means nothing has been inserted till now.*/
-     long numberOfElements=0l;/*Total number of elements inserted till now.-1 if none.*/
+     long numberOfElements;/*Total number of elements inserted till now.-1 if none.*/
      private boolean insertFlag=false;/*Sets to true when index to be filled is preoccupied.*/
      /**
       * Sets to true during rectification of indexes beyond currently inserted index's 
@@ -80,7 +80,7 @@ public class Insert {
       * This flag is kept as private so as outsiders cannot manipulate it anyhow.
       */
      private boolean vMFlag=false; 
-     BaseNode rootTREE=null;/*ROOT of Base Structure(AVL TREE.)*/
+     BaseNode rootTREE;/*ROOT of Base Structure(AVL TREE.)*/
      BaseNode tmp2;/*To be inserted in BaseStructure.*/
     
     /**
@@ -97,26 +97,26 @@ public class Insert {
             insertFlag=false;
             p1=uraI.getMinMax().Find(node,uraI.getMinMax().VMROOT.left);
             if(lastIndex>p1.max){
-                findAndCorrect((p1.max+1),rootTREE.left);
+                findAndCorrect((p1.max+1l),rootTREE.left);
                 maxFlag=false;
-                p2=uraI.getMinMax().Find(p1.max+2,uraI.getMinMax().VMROOT.left);
+                p2=uraI.getMinMax().Find(p1.max+2l,uraI.getMinMax().VMROOT.left);
                 if(p2!=null){
                     p1.max=p2.max;
                     uraI.getMinMax().delete(uraI,p2,uraI.getMinMax().VMROOT.left,uraI.getMinMax().VMROOT);
                 }
-                else {p1.max++;}
+                else {p1.max+=1l;}
             }
-            else if(lastIndex==p1.max){p1.max++;lastIndex++;}
+            else if(lastIndex==p1.max){p1.max+=1l;lastIndex+=1l;}
             else {System.out.println("BIG_ERROR");System.exit(0);}
         }
         else{
             if(uraI.getMinMax().VMROOT!=null){    
-                if((node!=0)){
-                    p1=uraI.getMinMax().Find(node-1,uraI.getMinMax().VMROOT.left);
+                if((node!=0l)){
+                    p1=uraI.getMinMax().Find(node-1l,uraI.getMinMax().VMROOT.left);
                 }
                 if(node<lastIndex){//if nodeIndex>lastIndex , tracker node will not be there for nodeIndex+1 also.
                     //and if node==lastIndex , this fragement will not be processed due to insert on pre-occupied index.
-                    p2=uraI.getMinMax().Find(node+1,uraI.getMinMax().VMROOT.left);
+                    p2=uraI.getMinMax().Find(node+1l,uraI.getMinMax().VMROOT.left);
                 }
                 if((p1==null)&&(p2==null)){uraI.getMinMax().insert(uraI,vm);}
                 else{
@@ -141,7 +141,7 @@ public class Insert {
     }
     
      void insert1(UraInstantiator uraI,long node,ClientData data,BaseNode p){
-        if(node>=0){
+        if(node>=0l){
             insertFlag=false;vMFlag=false;
             tmp2=new BaseNode();
             tmp2.nodeIndex=node;
@@ -163,11 +163,11 @@ public class Insert {
         if(tmp!=null){
             if(node<tmp.nodeIndex){
                 findAndCorrect(node,tmp.left);
-                if(maxFlag==true){tmp.nodeIndex--;tmp.vMFactor--;}
+                if(maxFlag==true){tmp.nodeIndex-=1l;tmp.vMFactor-=1l;}
             }
             else if(node==tmp.nodeIndex){
-                if(tmp.right!=null){tmp.vMFactor--;}
-                else {tmp.vMFactor=0;}
+                if(tmp.right!=null){tmp.vMFactor-=1l;}
+                else {tmp.vMFactor=0l;}
                 maxFlag=true;
             }
             else{
@@ -190,7 +190,7 @@ public class Insert {
             else {
                 p.left=tmp2;tmp2=null;
             }
-            if((insertFlag==true)&&(vMFlag==true)){p.nodeIndex++;p.vMFactor++;}
+            if((insertFlag==true)&&(vMFlag==true)){p.nodeIndex+=1l;p.vMFactor+=1l;}
         }
         else{
             long tmpnode=tmp2.nodeIndex;
@@ -200,7 +200,7 @@ public class Insert {
                 ClientData temp=p.data;
                 p.data=tmp2.data;
                 tmp2.data=temp;
-                p.vMFactor++;
+                p.vMFactor+=1l;
             }
             tmp2.nodeIndex=tmpnode;
             if(p.right!=null){

@@ -37,9 +37,9 @@ package undelayedRandomAlgorithm;
  */
 public class BaseStructure {
 
-    int bf=0;/*BalancedFactor*/
-    int l=0;/*l for left Child's height*/
-    int r=0;/*r for right Child's height*/
+    int bf;/*BalancedFactor*/
+    int l;/*l for left Child's height*/
+    int r;/*r for right Child's height*/
      
     /**
      * For debug purpose.
@@ -89,7 +89,7 @@ public class BaseStructure {
         uraI.getMinMax().tmp2=uraI.getMinMax().VMROOT=uraI.getMinMax().nTS=null;
         uraI.getMinMax().l=uraI.getMinMax().r=uraI.getMinMax().bf=0;
         uraI.getDelete().delindex=false;
-        uraI.getDelete().NODE=0;uraI.getDelete().nTS=null;
+        uraI.getDelete().NODE=0l;uraI.getDelete().nTS=null;
      }
 
      /**

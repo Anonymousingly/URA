@@ -33,10 +33,10 @@ package undelayedRandomAlgorithm;
  * min,max values are used for tracking.
  */
 public class TrackerNode implements Common{
-    long min=0,max=0;
+    long min,max;
     /*Below Variables are for AVL TREE form*/
-    TrackerNode left=null,right=null;
-    int height=0;
+    TrackerNode left,right;
+    int height;
     
     @Override
     public TrackerNode getLeft(){return left;}

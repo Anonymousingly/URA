@@ -38,15 +38,15 @@ public class BaseNode implements Common{
     /**
      * Index Of Node.
      */
-    long nodeIndex=0l;
+    long nodeIndex;
     /**
      * Height Of node.
      */
-    int height=0;
+    int height;
     /**
      * Data present inside node.
      */
-    ClientData data=null;
+    ClientData data;
  /**
  * vMFactor:: It's a variable to track index updates with every data node and that's enough
  * to achieve different types of insertion & deletion with same time complexity as in case of underlying(base)
@@ -54,8 +54,8 @@ public class BaseNode implements Common{
  * <br>VM=Vivek Mangla<br>
  * I have named it on my name cause it's an important key of URA(UnDelayed Random Algorithm).
  */
-    long vMFactor=0l;
-    BaseNode left=null,right=null;
+    long vMFactor;
+    BaseNode left,right;
     
     @Override
     public BaseNode getLeft(){return left;}

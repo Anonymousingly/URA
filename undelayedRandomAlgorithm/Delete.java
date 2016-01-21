@@ -54,12 +54,12 @@ public class Delete {
             /*For debug purpose, comment below if statement and let this code fragemenet's
              * delete statement be executed nearby line no. 70.
              */
-            if(uraI.getInsert().numberOfElements==1){
+            if(uraI.getInsert().numberOfElements==1l){
                 uraI.getBaseStructure().reset(uraI);
                 return;
             }
             if(uraI.getInsert().lastIndex==node){
-                if(p1.min!=p1.max){uraI.getInsert().lastIndex--;}
+                if(p1.min!=p1.max){uraI.getInsert().lastIndex-=1l;}
                 else{
                     //below instruction is just a debugging one.
                     if(p1.right!=null){System.out.println("ERROR");System.exit(0);}
@@ -80,13 +80,13 @@ public class Delete {
             //delete tracker node.
             if(p1.min==p1.max){uraI.getMinMax().delete(uraI,p1,uraI.getMinMax().VMROOT.left,uraI.getMinMax().VMROOT);}
             //Update tracker node.
-            else if(p1.min==node){p1.min++;}
-            else if(p1.max==node){p1.max--;}
+            else if(p1.min==node){p1.min+=1l;}
+            else if(p1.max==node){p1.max-=1l;}
             else{
-                min=p1.min;max=node-1;
+                min=p1.min;max=node-1l;
                 TrackerNode tmp=new TrackerNode();
                 tmp.min=min;tmp.max=max;
-                p1.min=node+1;
+                p1.min=node+1l;
                 uraI.getMinMax().insert(uraI,tmp);
             }
             delete(uraI,node,p,root,ROOT);
@@ -110,9 +110,10 @@ public class Delete {
         nTS=null;
         delindex=false;
         NODE=0l;
-        if((index>=0)){
+        if((index>=0l)){
         NODE=index;
         manageTracker(uraI,index,p,root,root);
+        if(delindex==true){uraI.getInsert().numberOfElements-=1l;}
         }
         
     }
@@ -170,7 +171,7 @@ public class Delete {
             changeRootChild(root,p,p.getRight());
             if(p instanceof BaseNode){
                 BaseNode tmp=(BaseNode)p;
-                tmp.right.vMFactor=0;
+                tmp.right.vMFactor=0l;
                 //tmp=null;
             }
             p.setHeight(0);
@@ -178,7 +179,7 @@ public class Delete {
         }
         else if(p.getRight()==null){
             changeRootChild(root,p,p.getLeft());
-            if(p instanceof BaseNode){BaseNode tmp=(BaseNode)p;tmp.left.vMFactor=0;}
+            if(p instanceof BaseNode){BaseNode tmp=(BaseNode)p;tmp.left.vMFactor=0l;}
             p.setHeight(0);
             p.setLeft(null);
         }
@@ -186,7 +187,7 @@ public class Delete {
             if(p.getLeft().getRight()!=null)
             {
                 nTS=null;
-                findAndDelete(uraI,p.getLeft(),p,0);
+                findAndDelete(uraI,p.getLeft(),p,0l);
                 nTS.setLeft(p.getLeft());
                 nTS.setRight(p.getRight());
                 if(p instanceof BaseNode){
@@ -220,7 +221,7 @@ public class Delete {
      void findAndDelete(UraInstantiator uraI,Common p,Common root,long baseindex){
         
         if(p.getRight()!=null){
-            long valueIndex=0;
+            long valueIndex=0l;
             if(p instanceof BaseNode){
                 BaseNode tmp=(BaseNode)p;
                 valueIndex=baseindex+tmp.vMFactor;
