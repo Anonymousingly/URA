@@ -2,7 +2,7 @@
                                           Under MIT Licence
                                     Copyright (c) 2016 "Vivek Mangla"
 A small algorithm for different types of random insert , delete , retrieve data along with that's implementation on AVL TREE.<br>
-A substitute for ArrayList , Array  , OBST , AVL TREE , Self Balancing Trees and few other collections in the cases if index/key collision occurs data shifting is required.<br>
+A FAST substitute for ArrayList , Array  , OBST , AVL TREE , Self Balancing Trees and few other collections in the cases if index/key collision occurs data shifting is required.<br>
 Performs faster  in cases where during insertion on pre-occupied index , previous data has to be shifted instead of replacement.<br>
 -----------------
 <b>I like this user name "Anonymousingly" that's why using this & not to hide myself.</b><br><br>
