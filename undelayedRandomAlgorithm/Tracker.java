@@ -88,7 +88,7 @@ public class Tracker {
       * Currently it's implementation is separate than in Delete.java because of different
       * searching conditions.<br>
       * T=O(log m),m=Number Of pairs present.<br>
-      * NOTE::Maximum Number of pairs will always be less than n/2,n=Number Of elements in BaseStructure.
+      * NOTE::Maximum Number of pairs will always be less than n/2,n=Last indexed element in BaseStructure.
       */
      void delete(UraInstantiator uraI,TrackerNode p,TrackerNode p1,TrackerNode root){
         if(p1!=null){
