@@ -48,8 +48,8 @@ Similarly , <b> worst cases </b> are the ones in which array and OBST will perfo
 Average case = Insert half elements as in Best case AND Insert other halves as in Worst Case and Vice-Versa.<br>
 
 <b>::</b><b>On my laptop for 10^7 ( 10 million ) elements , URA with AVL TREE as Base proved that ::</b><br>
-*It is faster than OBST in OBST's best , Worst and Average cases by 1 second ,12 seconds and 3 seconds respectively.<br>
-*It is faster than Array in Array's Worst and Average Cases by 20 seconds and 7 seconds respectively <b>merely for 10^5 elements.</b><br>
+*It is <u>faster </u>than OBST in OBST's best , Worst and Average cases by 1 second ,12 seconds and 3 seconds respectively.<br>
+*<b>It is <u>faster</u> than Array in Array's Worst and Average Cases by<u> 2876  seconds or 47 minutes </u> and 7 seconds respectively <u>merely for 10^6 elements</u>.</b><br>
 *It is little bit slow than Array in Array's best case by 6.5 seconds due to log(n) factor of AVL_TREE ... ( <b> remember this algo is not designed for unique insertion i.e. for insertion on non-repetitive indexes <i> ONLY </i> </b> )<br>
 
 <b>::</b>I also named this implementation as VM's Lazy Array or VMLazy Array ,<b> just for fun </b> .<br>
