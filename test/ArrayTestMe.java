@@ -35,7 +35,7 @@ import java.lang.management.ThreadMXBean;
  * When I tested these test cases on URA with AVL_TREE as base , results were like<br>
  * In best case::Array was fast by log(n) factor::URA took 7.4 sec. but Array took 0.97 sec. for 10^7 elements.<br>
  * In worst case ::URA was faster as URA took 0.65 sec. but Array took 2876.73 sec. (47.94 minutes) for 10^6 elements.<br>
- * In average cases :: URA was faster as URA took .04 sec. but Array took 7.8 sec. for 10^5 elements.<br>
+ * In average cases :: URA was faster as URA took .616 sec. but Array took 1128 sec. (18.8 minutes) for 10^6 elements.<br>
  * <<------------------------------>><br>
  * Above tests were done on::<br>
  * intel Core i3 Processor.<br>
