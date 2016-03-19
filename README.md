@@ -1,12 +1,10 @@
 # URA-UnDelayed-Random-Algorithm-
                                           Under MIT Licence
                                     Copyright (c) 2016 "Vivek Mangla"
-A small algorithm for different types of random insert , delete , retrieve data along with that's implementation on AVL TREE.<br>
-A FAST substitute for ArrayList , Array  , OBST , AVL TREE , Self Balancing Trees and few other collections in the cases if index/key collision occurs data shifting is required.<br>
+An efficient & small algorithm for different types of random insert , delete , retrieve data along with that's implementation on AVL TREE.<br>
+A FAST substitute for ArrayList , Array  , OBST , AVL TREE , Self Balancing Trees and few other collections in the cases, if index/key collision occurs data shifting is required.<br>
 Performs faster  in cases where during insertion on pre-occupied index , previous data has to be shifted instead of replacement.<br>
------------------
-<b>I like this user name "Anonymousingly" that's why using this & not to hide myself.</b><br><br>
------------------
+
 <b>To see how to use , read <i>Client.java</i> file in <i>client</i> package.</b><br><br>
 <b>Read <i>summmaryOfAlgorithm</i> package to know about algorithm</b><br><br>
 <b>Do study summaryOfAlgorithm package to understand it's limitations.</b><br>
@@ -20,7 +18,7 @@ When you insert data in ,say array, and let us say the index was pre occupied .
 For example::<br>
 Data was present at indexes 3,4,5,6,7,8,12,234,3000... then <br>
 Insert at 4 means new indexes will be 3,4,5,6,7,8,9,12,234,3000. i.e. data at 4,5,6,7,8 are being shifted ahead.<br>
-Other Exapmles::<br>
+Other Examples::<br>
 eg.:Say data is present at 0,1,2,10,11,56,65,100,2000,2001,2002.<br>
 So insert at   0 ,new array will contain data at 0,1,2,3,10,11,56,65,100,2000,2001,2002.<br>
 Insert at 56 ,new array will contain data at 0,1,2,3,10,11,56,57,65,100,2000,2001,2002.<br>
