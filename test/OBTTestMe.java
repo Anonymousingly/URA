@@ -133,6 +133,9 @@ public class OBTTestMe {
         start=bean.getThreadCpuTime(id);
         avg1(0,m/2);
         avg2(m/2+1,m-1);
+        sum+=bean.getThreadCpuTime(id)-start;
+        ccm.reset();
+        start=bean.getThreadCpuTime(id);
         avg2(0,m/2);
         avg1(m/2+1,m-1);
         sum+=bean.getThreadCpuTime(id)-start;
